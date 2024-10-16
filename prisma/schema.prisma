@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model OldExams {
+  id        String   @id
+  name      String   @db.VarChar(250)
+  year      DateTime @db.Timestamptz(6)
+  period    PERIOD
+  accessUrl String
+}
+
+model Simulates {
+  id            String   @id(map: "PK_Simulates") @db.Uuid
+  name          String   @db.VarChar(250)
+  about         ABOUT
+  coverUrl      String
+  questiosCount Int
+  formsUrl      String
+  helpVideosUrl String[]
+  aboutContent  Json
+}
+
+enum ABOUT {
+  EXATAS
+  HUMANAS
+}
+
+enum PERIOD {
+  PRIMEIRO_SEMESTRE
+  SEGUNDO_SEMESTRE
+}
