@@ -33,7 +33,37 @@ async function main() {
         'https://www.youtube.com/watch?v=q846Qdi-od8',
         'https://www.youtube.com/watch?v=xpv-SWbDUr8',
       ],
-      questiosCount: 10,
+      questiosCount: 20,
+    },
+    {
+      id: randomUUID(),
+      name: 'Simulado - Humanas',
+      about: 'HUMANAS',
+      coverUrl:
+        'https://cdn.leonardo.ai/users/fe43965d-374e-448c-a69b-83428cf52322/generations/7e44351a-61e2-4815-8f23-dfc1bb62fbcd/Leonardo_Anime_XL_creates_a_smiling_student_studying_in_turquo_2.jpg',
+      aboutContent: {
+        themes: [
+          {
+            name: 'Lingua Portuguesa',
+            content: 'Linguagem e Literatura',
+          },
+          {
+            name: 'História',
+            content: 'História Brasileira',
+          },
+          {
+            name: 'Artes',
+            content: 'Historia da Arte',
+          },
+        ],
+      },
+      formsUrl:
+        'https://docs.google.com/forms/d/e/1FAIpQLSf_oWpTQ8tHP4qhYgMYo3pkcNFZ7Sft_B3sVrQ5m4JhJ3Ps_g/viewform?vc=0&c=0&w=1&flr=0',
+      helpVideosUrl: [
+        'https://www.youtube.com/watch?v=WGZFBePibF0&pp=ygUWbGl0ZXJhdHVyYSB2aWRlbyBhdWxhIA%3D%3D',
+        'https://www.youtube.com/watch?v=HihjI7ceC6E&pp=ygUVRmV1ZGFsaXNtbyB2aWRlbyBhdWxh',
+      ],
+      questiosCount: 20,
     },
   ];
 
