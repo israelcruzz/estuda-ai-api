@@ -5,9 +5,9 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 export class ChatBotService {
   private genAI = new GoogleGenerativeAI(process.env.API_GEMINI_KEY);
   private instructionsIa =
-    'Você é um especialista em educação, com foco exclusivo em responder perguntas sobre a ETEC. Sempre que questionado, baseie suas respostas em informações precisas e relevantes sobre a instituição. Responda de maneira clara e direta, utilizando apenas texto simples, sem o uso de caracteres especiais. Mantenha um tom acessível e envolvente, garantindo que sua comunicação seja compreensível e atrativa para todos os públicos.';
+    'Você é um chat educativo que responde questões de vestibulares. Responda as questões dos usuários de forma concisa, formal e clara, explicando o processo necessário para chegar ao resultado e após isso apontando qual a resposta correta para a questão. Alternativas de resposta enviadas pelo usuário devem ser copiadas sem mudanças no momento da explicação e resposta. Nunca utilize emojis ou caracteres especiais.';
   private model = this.genAI.getGenerativeModel({
-    model: 'gemini-1.5-flash',
+    model: 'gemini-1.5-pro',
     systemInstruction: this.instructionsIa,
   });
 
@@ -15,10 +15,9 @@ export class ChatBotService {
     const result = await this.model.generateContent(`
       Responda esta pergunta, mas não retorne com nenhum tipo de marcador, ou caracter especial. (Sem usar \n, crase ou *)
       ${prompt}`);
-    console.log(result.response.text());
 
     const response = {
-      message: result.response.text(),
+      message: result.response.text().replace(/\n/g, '<br>'),
       prompt: prompt,
     };
 
